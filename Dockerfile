@@ -6,6 +6,8 @@ FROM centos:7
 
 ENTRYPOINT "php-fpm"
 
+VOLUME ["/php"]
+
 EXPOSE 9000
 
 RUN /bin/localedef -v -c -i en_US -f UTF-8 en_US.UTF-8;\
