@@ -2,10 +2,10 @@
 Description=PHP-FPM %i docker container
 After=rpcbind.service
 After=docker.service
-Before=phpfpm-dev-discovery@%i.service
+#Before=phpfpm-dev-discovery@%i.service
 Requires=docker.service
 Requires=rpcbind.service
-Requires=phpfpm-dev-discovery@%i.service
+#Requires=phpfpm-dev-discovery@%i.service
 
 [Service]
 TimeoutStartSec=0
