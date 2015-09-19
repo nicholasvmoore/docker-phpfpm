@@ -4,8 +4,8 @@ BindsTo=phpfpm@%i.service
 After=phpfpm@%i.service
 
 [Service]
-ExecStart=/bin/sh -c "while true; do etcdctl set /services/prod/phpfpm/phpfpm-dev@%i '%H,'$(echo $(docker port phpfpm-dev-%i 9000 | cut -d':' -f2))'' -ttl 60; /usr/bin/sleep 45;done"
-ExecStop=/usr/bin/etcdctl rm /services/prod/phpfpm/phpfpm-dev@%i
+ExecStart=/bin/sh -c "while true; do etcdctl set /services/prod/phpfpm/phpfpm@%i '%H,'$(echo $(docker port phpfpm-%i 9000 | cut -d':' -f2))'' -ttl 60; /usr/bin/sleep 45;done"
+ExecStop=/usr/bin/etcdctl rm /services/prod/phpfpm/phpfpm@%i
 
 [X-Fleet]
 MachineOf=phpfpm@%i.service
