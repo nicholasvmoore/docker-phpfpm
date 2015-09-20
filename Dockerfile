@@ -16,6 +16,7 @@ RUN /bin/localedef -v -c -i en_US -f UTF-8 en_US.UTF-8;\
     yum clean all;\
     curl -L https://github.com/kelseyhightower/confd/releases/download/v0.10.0/confd-0.10.0-linux-amd64 -o /usr/bin/confd;\
     chmod +x /usr/bin/confd;\
+    echo "cgi.fix_pathinfo = 0;" >> /etc/php.ini;\
     sed -i '/^upload_max_filesize/cupload_max_filesize\ \=\ 64M' /etc/php.ini;\
     sed -i '/^post_max_size/cpost_max_size\ \=\ 64M' /etc/php.ini;\
     sed -i '/^listen = /clisten = 0.0.0.0:9000' /etc/php-fpm.d/www.conf;\
