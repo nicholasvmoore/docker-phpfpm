@@ -14,7 +14,7 @@ KillMode=none
 ExecStartPre=-/usr/bin/docker stop phpfpm-%i
 ExecStartPre=-/usr/bin/docker rm -f phpfpm-%i
 ExecStartPre=/usr/bin/docker pull nicholasvmoore/docker-phpfpm
-ExecStart=/usr/bin/docker run --rm -v /mnt/mpzfs01/coreos00/wordpress/prod:/php:rw -P=true --name=phpfpm-%i nicholasvmoore/docker-phpfpm
+ExecStart=/usr/bin/docker run --rm -v /mnt/mpzfs01/coreos00/www/prod:/php:rw -P=true --name=phpfpm-%i nicholasvmoore/docker-phpfpm
 ExecStop=/usr/bin/docker stop phpfpm-%i
 
 [Install]
